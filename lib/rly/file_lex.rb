@@ -11,7 +11,7 @@ module Rly
       @inputstack.push([@input, @pos, @filename]) if @filename
 
       @filename = fn
-      @input = open(fn).read
+      @input = open(fn).read.encode!('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
       @pos = 0
     end
 
